@@ -8,14 +8,12 @@ const CartItem = ({ item, removeFromCart, increaseQuantity, decreaseQuantity }) 
         <h3>{item.name}</h3>
         <p>₹{item.price}</p>
         <div className="quantity-controls">
-          <button  className="inc" onClick={() => decreaseQuantity(item.id)}>-</button>
+          <button className="inc" onClick={() => decreaseQuantity(item._id)}>-</button>
           <span>{item.quantity}</span>
-          <button className="inc" onClick={() => increaseQuantity(item.id)}>+</button>
+          <button className="inc" onClick={() => increaseQuantity(item._id)}>+</button>
         </div>
       </div>
-      <button className="remove-btn" onClick={() => removeFromCart(item.id)}>
-        ❌
-      </button>
+      <button className="remove-btn" onClick={() => removeFromCart(item._id)}>✖</button>
     </div>
   );
 };

@@ -6,9 +6,19 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="product-card">
-      <img src={product.image} alt={product.name} />
+      <img
+        src={product.image}
+        alt={product.name}
+        className="product-image"
+      />
       <h3>{product.name}</h3>
-      <p>₹{product.price}</p>
+      <p>Category: {product.category}</p>
+      <p>
+        <span className="price">₹{product.price}</span>{" "}
+        {product.discount > 0 && (
+          <span className="discount">({product.discount}% OFF)</span>
+        )}
+      </p>
       <button onClick={() => addToCart(product)}>Add to Cart</button>
     </div>
   );

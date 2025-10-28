@@ -6,7 +6,7 @@ const ProductGrid = ({ products, addToCart }) => {
     <div className="product-grid">
       {products.length > 0 ? (
         products.map((product) => (
-          <ProductCard key={product.id} product={product} addToCart={addToCart} />
+          <ProductCard key={product._id} product={product} addToCart={addToCart} />
         ))
       ) : (
         <p className="no-results">No products found 😕</p>
