@@ -1,11 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
+import { UserContext } from "../context/UserContext";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "../css/checkout.css";
 
 const Checkout = () => {
   const { cartItems, total } = useContext(CartContext);
+  const { user } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -13,10 +15,24 @@ const Checkout = () => {
     email: "",
     address: "",
     city: "",
-    pincode: ""
+    pincode: "",
   });
 
   const [showPopup, setShowPopup] = useState(false);
+
+  // ✅ Auto-fill logged-in user details
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        fullName: user.name || "",
+        phone: user.phone || "",
+        email: user.email || "",
+        address: user.address || "",
+        city: "",
+        pincode: "",
+      });
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,6 +40,14 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (cartItems.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    // Simulate order placed
+    console.log("Order placed:", { formData, cartItems, total });
     setShowPopup(true);
   };
 
@@ -33,6 +57,7 @@ const Checkout = () => {
       <div className="checkout-container">
         <h1 className="checkout-title">Checkout</h1>
         <div className="checkout-content">
+          {/* 🧾 Billing Form */}
           <form className="checkout-form" onSubmit={handleSubmit}>
             <input
               type="text"
@@ -88,26 +113,35 @@ const Checkout = () => {
             </button>
           </form>
 
+          {/* 🛒 Order Summary */}
           <div className="order-summary">
             <h2>Order Summary</h2>
-            {cartItems.map((item) => (
-              <div className="summary-item" key={item.id}>
-                <img src={item.image} alt={item.name} />
-                <div>
-                  <p><strong>{item.name}</strong></p>
-                  <p>Qty: {item.quantity}</p>
-                  <p>Price: ₹{item.price}</p>
-                  {item.discount && <p>Discount: {item.discount}%</p>}
+            {cartItems.length === 0 ? (
+              <p>Your cart is empty.</p>
+            ) : (
+              cartItems.map((item) => (
+                <div className="summary-item" key={item.id}>
+                  <img src={item.image} alt={item.name} />
+                  <div>
+                    <p>
+                      <strong>{item.name}</strong>
+                    </p>
+                    <p>Qty: {item.quantity}</p>
+                    <p>Price: ₹{item.price}</p>
+                    {item.discount && <p>Discount: {item.discount}%</p>}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
             <hr />
-            <p><strong>Total: ₹{total}</strong></p>
+            <p>
+              <strong>Total: ₹{total}</strong>
+            </p>
           </div>
         </div>
       </div>
 
-      {/* ✅ Popup after order placed */}
+      {/* 🎉 Order placed popup */}
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup-box">

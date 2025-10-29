@@ -1,43 +1,99 @@
 .login-container {
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  align-items: center;
+  height: 85vh;
+  background: #fff;
+  font-family: "Poppins", sans-serif;
 }
 
-.login-form {
-  width: 400px;
+.login-box {
+  background-color: #f8f8f8;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 380px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.login-box h2 {
+  color: #3b1e0b; /* dark brown like navbar */
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.login-box form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  gap: 1rem;
 }
 
-.login-form h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.login-form input,
-.login-form textarea {
-  padding: 10px;
-  font-size: 1rem;
+.login-box input {
+  padding: 10px 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.login-form button {
-  background-color: #1e1e1e;
-  color: white;
-  padding: 12px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
 }
 
-.login-form button:hover {
-  background-color: #333;
+.login-box input:focus {
+  outline: none;
+  border-color: #3b1e0b;
+}
+
+button[type="submit"] {
+  background-color: #3b1e0b;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #5c3214;
+}
+
+/* Switch text below form */
+.switch-mode {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.switch-mode button {
+  background: none;
+  border: none;
+  color: #3b1e0b;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Error text */
+.error {
+  color: #d9534f;
+  background: #fbeaea;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Smooth layout for register fields */
+.login-box input[name="name"],
+.login-box input[name="phone"],
+.login-box input[name="address"] {
+  background-color: #fff;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    width: 90%;
+    padding: 2rem;
+  }
 }

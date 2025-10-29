@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import CartItem from "../components/CartItem";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom";   // 👈 Added
+import { useNavigate } from "react-router-dom"; 
 import "../css/cart.css";
 
 const Cart = () => {
@@ -15,7 +15,7 @@ const Cart = () => {
     decreaseQuantity,
   } = useContext(CartContext);
 
-  const navigate = useNavigate(); // 👈 Hook to navigate
+  const navigate = useNavigate();
 
   return (
     <>
