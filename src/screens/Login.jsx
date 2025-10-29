@@ -141,7 +141,6 @@ const Login = () => {
 
   return (
     <>
-      <NavBar />
       <div className="login-container">
         <div className="login-box">
           <h2>{isRegister ? "Register" : "Login"}</h2>
@@ -167,7 +166,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer />
+     
     </>
   );
 };

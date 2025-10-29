@@ -9,7 +9,7 @@ const ProductGrid = ({ products, addToCart }) => {
           <ProductCard key={product._id} product={product} addToCart={addToCart} />
         ))
       ) : (
-        <p className="no-results">No products found 😕</p>
+        <p className="no-results">No products found !!!!</p>
       )}
     </div>
   );

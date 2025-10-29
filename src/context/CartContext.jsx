@@ -1,58 +1,67 @@
- import { createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
-export const CartProvider = ({ children }) => {
+export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
-  // 🛒 Add an item to cart
-  const addToCart = (product) => {
-    setCartItems((prev) => {
-      const existingItem = prev.find((item) => item._id === product._id);
-      if (existingItem) {
-        // If already in cart, increase quantity
-        return prev.map((item) =>
-          item._id === product._id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
+  // Add item to cart
+  function addToCart(product) {
+    const existingItem = cartItems.find((item) => item._id === product._id);
+
+    if (existingItem) {
+      const updatedCart = cartItems.map((item) => {
+        if (item._id === product._id) {
+          return { ...item, quantity: item.quantity + 1 };
+        } else {
+          return item;
+        }
+      });
+      setCartItems(updatedCart);
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+  }
+
+  // Remove item from cart
+  function removeFromCart(id) {
+    const updatedCart = cartItems.filter((item) => item._id !== id);
+    setCartItems(updatedCart);
+  }
+
+  // Increase quantity
+  function increaseQuantity(id) {
+    const updatedCart = cartItems.map((item) => {
+      if (item._id === id) {
+        return { ...item, quantity: item.quantity + 1 };
       } else {
-        // Else add as new item
-        return [...prev, { ...product, quantity: 1 }];
+        return item;
       }
     });
-  };
+    setCartItems(updatedCart);
+  }
 
-  // ➖ Remove item from cart
-  const removeFromCart = (_id) => {
-    setCartItems((prev) => prev.filter((item) => item._id !== _id));
-  };
+  // Decrease quantity
+  function decreaseQuantity(id) {
+    const updatedCart = cartItems.map((item) => {
+      if (item._id === id && item.quantity > 1) {
+        return { ...item, quantity: item.quantity - 1 };
+      } else {
+        return item;
+      }
+    });
+    setCartItems(updatedCart);
+  }
 
-  // 🔼 Increase quantity
-  const increaseQuantity = (_id) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item._id === _id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-  };
+  // Total price
+  const total = cartItems.reduce(function (sum, item) {
+    return sum + item.price * item.quantity;
+  }, 0);
 
-  // 🔽 Decrease quantity
-  const decreaseQuantity = (_id) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item._id === _id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-    );
-  };
-
-  // 💰 Calculate total price
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  // Clear cart (when logging out)
+  function clearCart() {
+    setCartItems([]);
+  }
 
   return (
     <CartContext.Provider
@@ -63,10 +72,10 @@ export const CartProvider = ({ children }) => {
         increaseQuantity,
         decreaseQuantity,
         total,
+        clearCart,
       }}
     >
       {children}
     </CartContext.Provider>
   );
-};
-
+}

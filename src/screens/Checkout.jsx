@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "../css/checkout.css";
@@ -8,6 +9,7 @@ import "../css/checkout.css";
 const Checkout = () => {
   const { cartItems, total } = useContext(CartContext);
   const { user } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -20,7 +22,7 @@ const Checkout = () => {
 
   const [showPopup, setShowPopup] = useState(false);
 
-  // ✅ Auto-fill logged-in user details
+  // Auto-fill user data
   useEffect(() => {
     if (user) {
       setFormData({
@@ -51,13 +53,18 @@ const Checkout = () => {
     setShowPopup(true);
   };
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    navigate("/"); // Redirect to home
+  };
+
   return (
     <>
       <NavBar />
       <div className="checkout-container">
         <h1 className="checkout-title">Checkout</h1>
         <div className="checkout-content">
-          {/* 🧾 Billing Form */}
+          {/* Billing Form */}
           <form className="checkout-form" onSubmit={handleSubmit}>
             <input
               type="text"
@@ -113,14 +120,14 @@ const Checkout = () => {
             </button>
           </form>
 
-          {/* 🛒 Order Summary */}
+          {/* Order Summary */}
           <div className="order-summary">
             <h2>Order Summary</h2>
             {cartItems.length === 0 ? (
               <p>Your cart is empty.</p>
             ) : (
               cartItems.map((item) => (
-                <div className="summary-item" key={item.id}>
+                <div className="summary-item" key={item._id}>
                   <img src={item.image} alt={item.name} />
                   <div>
                     <p>
@@ -141,13 +148,13 @@ const Checkout = () => {
         </div>
       </div>
 
-      {/* 🎉 Order placed popup */}
+      {/* Simple popup */}
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup-box">
-            <h2>🎉 Order Placed!</h2>
+            <h2> Order Placed!</h2>
             <p>Thank you for shopping with us.</p>
-            <button onClick={() => setShowPopup(false)}>Close</button>
+            <button onClick={handleClosePopup}>Close</button>
           </div>
         </div>
       )}

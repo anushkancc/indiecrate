@@ -21,7 +21,7 @@ const AboutGallery = () => {
 
   return (
     <section className="about-gallery-section">
-      <h2 className="gallery-heading">✨ A Glimpse of Our Creations</h2>
+      <h2 className="gallery-heading">A Glimpse of Our Creations</h2>
       <div className="about-gallery">
         <button className="gallery-btn left" onClick={prevImage}>❮</button>
         <img src={images[currentIndex]} alt="Artisan work" />

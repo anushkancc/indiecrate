@@ -2,24 +2,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 85vh;
-  background: #fff;
+  height: 100vh; /* 🔥 Full-screen background */
+  
+  /* ✨ Dark overlay for contrast */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("https://images.unsplash.com/photo-1692481643071-34347616e9c2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   font-family: "Poppins", sans-serif;
+  
 }
 
+/* Slightly bigger box */
 .login-box {
-  background-color: #f8f8f8;
-  padding: 2.5rem 3rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  width: 380px;
+  background-color: rgba(248, 248, 248, 0.95);
+  padding: 3rem 3.5rem; /* Increased padding */
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  width: 420px; /* Increased width */
   text-align: center;
   transition: all 0.3s ease;
 }
 
 .login-box h2 {
-  color: #3b1e0b; /* dark brown like navbar */
-  font-size: 1.8rem;
+  color: #3b1e0b;
+  font-size: 1.9rem;
   margin-bottom: 1.5rem;
   font-weight: 600;
 }
@@ -60,7 +70,6 @@ button[type="submit"]:hover {
   background-color: #5c3214;
 }
 
-/* Switch text below form */
 .switch-mode {
   margin-top: 1rem;
   font-size: 0.9rem;
@@ -74,7 +83,6 @@ button[type="submit"]:hover {
   font-weight: 600;
 }
 
-/* Error text */
 .error {
   color: #d9534f;
   background: #fbeaea;
@@ -84,7 +92,6 @@ button[type="submit"]:hover {
   margin-bottom: 0.5rem;
 }
 
-/* Smooth layout for register fields */
 .login-box input[name="name"],
 .login-box input[name="phone"],
 .login-box input[name="address"] {
@@ -97,3 +104,4 @@ button[type="submit"]:hover {
     padding: 2rem;
   }
 }
+

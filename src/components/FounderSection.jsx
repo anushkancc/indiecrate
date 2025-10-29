@@ -20,7 +20,7 @@ export default function FounderSection() {
           </p>
           <p>
             My mission is simple: give artisans the platform they deserve and help
-            their craft reach homes across the world. Thank you for being part of this journey 💛
+            their craft reach homes across the world. Thank you for being part of this journey.
           </p>
         </div>
       </div>

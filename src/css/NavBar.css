@@ -1,120 +1,78 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* ✨ Navbar Container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 32px;
-  background: linear-gradient(90deg, #4b2e19, #6b4226);
+  background-color: #5c2e05; /* rich brown shade */
+  padding: 1rem 2rem;
   color: white;
-  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  font-family: "Poppins", sans-serif;
 }
 
-/* 🪔 Logo */
+/* ✨ Stylish IndieCrate logo */
 .navbar-logo {
+  font-family: "Playfair Display", serif;
   font-size: 1.8rem;
   font-weight: 700;
+  background: linear-gradient(90deg, #f0c27b, #c38b59);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   letter-spacing: 1px;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
+  text-transform: capitalize;
+  
 }
 
-.navbar-logo:hover {
-  color: #ffd699;
-  transform: scale(1.05);
-}
 
-/* 🧭 Navigation Links */
+/* Navigation links */
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 26px;
   align-items: center;
+  gap: 1.5rem;
   margin: 0;
 }
 
-.navbar-links li a {
+.navbar-links a {
   text-decoration: none;
   color: white;
-  font-size: 1rem;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.navbar-links li a:hover {
-  background-color: #6f4e37;
+.navbar-links a:hover {
   color: #ffd699;
-  transform: translateY(-2px);
 }
 
-/* 👋 Greeting ("Hello, user") */
+/* Greeting text */
 .greeting {
-  color: #ffdd99;
+  color: #ffd699;
   font-weight: 500;
-  font-size: 0.95rem;
-  margin-right: 4px;
 }
 
-/* 🔘 Stylish Logout Button */
+/* Logout button */
 .link-button {
-  background: transparent;
-  border: 1.5px solid #ffdd99;
-  color: #ffdd99;
-  padding: 8px 14px;
-  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid #ffd699;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #ffd699;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .link-button:hover {
-  background-color: #ffdd99;
-  color: #4b2e19;
-  transform: scale(1.05);
-  box-shadow: 0 2px 6px rgba(255, 221, 153, 0.4);
+  background-color: #ffd699;
+  color: #5c2e05;
 }
 
-/* 🪶 Add subtle hover for all items */
-.navbar-links li:hover {
-  transform: scale(1.02);
-  transition: transform 0.2s ease;
-}
-
-/* 📱 Responsive Design */
+/* Responsive design */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 14px 20px;
+    gap: 0.5rem;
   }
 
   .navbar-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 16px;
-    margin-top: 12px;
-  }
-
-  .navbar-links li a,
-  .link-button {
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
-
-  .link-button {
-    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../css/Hero.css";
 
 export default function Hero() {
@@ -6,7 +7,9 @@ export default function Hero() {
       <div className="hero-overlay">
         <h1>Welcome to IndieCrate</h1>
         <p>Discover unique and handcrafted products just for you</p>
-        <button className="hero-btn">Shop Now</button>
+        <Link to="/shop">
+          <button className="hero-btn">Shop Now</button>
+        </Link>
       </div>
     </section>
   );
