@@ -55,7 +55,7 @@ const Cart = () => {
               <span>₹{total}</span>
             </div>
 
-            {/* 👇 Navigate to checkout page */}
+            {/* Navigate to checkout page */}
             <button
               className="checkout-btn"
               onClick={() => navigate("/checkout")}

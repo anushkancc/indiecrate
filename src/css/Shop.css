@@ -1,4 +1,3 @@
-/* 🌿 Shop Page Container */
 .shop-container {
   padding: 40px 20px;
   max-width: 1200px;
@@ -6,7 +5,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* 🛍️ Shop Header */
 .shop-header {
   display: flex;
   flex-direction: column;
@@ -50,14 +48,12 @@
   cursor: pointer;
 }
 
-/* 🧱 Product Grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
-/* 🧩 Product Card */
 .product-card {
   background: #fff;
   border-radius: 12px;
@@ -113,7 +109,7 @@
   background: #333;
 }
 
-/* 😕 No results */
+
 .no-results {
   text-align: center;
   font-size: 1.2rem;
@@ -121,7 +117,7 @@
   grid-column: 1 / -1;
 }
 
-/* 🧠 Responsive */
+
 @media (max-width: 600px) {
   .shop-header h1 {
     font-size: 1.8rem;

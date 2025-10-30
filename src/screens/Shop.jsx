@@ -10,7 +10,7 @@ const Shop = ({ addToCart }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("All");
 
-  // ✅ Fetch products from your backend
+  //Fetch products from your backend
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -25,7 +25,7 @@ const Shop = ({ addToCart }) => {
     fetchProducts();
   }, []);
 
-  // ✅ Filter logic
+  // Filter logic
   const filteredProducts = products.filter((product) => {
     const matchCategory = category === "All" || product.category === category;
     const matchSearch = product.name

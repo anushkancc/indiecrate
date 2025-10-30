@@ -16,8 +16,7 @@ export default function WhyIndieCrate() {
             We connect you directly with skilled artisans, bringing you products that
             tell a story. Every purchase supports local craft communities and helps
             preserve traditional art.
-          </p>
-          
+          </p>  
         </div>
       </div>
     </section>

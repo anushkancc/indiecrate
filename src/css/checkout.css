@@ -1,37 +1,44 @@
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+
 .checkout-container {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem;
-  font-family: "Poppins", sans-serif; /* same as your other pages */
+  font-family: "Poppins", sans-serif;
+  color: #292929;
 }
 
 .checkout-title {
   font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: left;
   font-weight: 600;
-  color: #292929;
+  margin-bottom: 1.5rem;
 }
 
 .checkout-content {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 2rem;
   flex-wrap: wrap;
 }
 
+
 .checkout-form {
-  flex: 1;
-  min-width: 300px;
+  flex: 1.2;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .checkout-form input,
@@ -41,6 +48,14 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   background-color: #f9f9f9;
+  font-size: 0.95rem;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+  border-color: #4b2e0e;
+  background-color: #fff;
+  outline: none;
 }
 
 .form-row {
@@ -49,30 +64,35 @@
 }
 
 .place-order-btn {
-  background-color: #292929;
+  background-color: #4b2e0e;
   color: white;
   padding: 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .place-order-btn:hover {
-  background-color: #444;
+  background-color: #3a220a;
+  transform: translateY(-2px);
 }
 
 .order-summary {
   flex: 0.8;
-  min-width: 300px;
-  background: #f8f8f8;
+  min-width: 320px;
+  background: #fff;
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .order-summary h2 {
   margin-bottom: 1rem;
   font-size: 1.5rem;
+  font-weight: 600;
+  color: #292929;
 }
 
 .summary-item {
@@ -99,7 +119,6 @@
   margin: 0.8rem 0;
 }
 
-/* ✨ Popup */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -134,7 +153,6 @@
   gap: 8px;
 }
 
-/* ✅ Tick icon style */
 .popup-box h2::before {
   content: "✔";
   color: green;
@@ -148,7 +166,7 @@
 }
 
 .popup-box button {
-  background-color: #292929;
+  background-color: #4b2e0e;
   color: white;
   border: none;
   padding: 10px 18px;
@@ -159,7 +177,7 @@
 }
 
 .popup-box button:hover {
-  background-color: #444;
+  background-color: #3a220a;
   transform: translateY(-2px);
 }
 
@@ -171,5 +189,118 @@
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+
+.payment-method-section {
+  margin-top: 1.5rem;
+}
+
+.payment-method-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #292929;
+  margin-bottom: 0.8rem;
+}
+
+.payment-method-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-method-option:hover {
+  color: #4b2e0e;
+}
+
+.payment-method-option input[type="radio"] {
+  accent-color: #4b2e0e;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.payment-extra-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.upi-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4b2e0e;
+}
+
+/* UPI Apps Grid */
+.upi-apps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.upi-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.upi-option:hover {
+  background-color: #f1ece7;
+  transform: translateY(-2px);
+  border-color: #4b2e0e;
+}
+
+.upi-option img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.upi-option input[type="radio"] {
+  accent-color: #4b2e0e;
+}
+
+.payment-extra-fields input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: 0.9rem;
+}
+
+.payment-extra-fields input[type="text"]:focus {
+  border-color: #4b2e0e;
+  background-color: #fff;
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

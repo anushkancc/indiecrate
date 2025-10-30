@@ -55,7 +55,7 @@
   background-color: #e6b35c;
 }
 
-/* 📱 Responsive Design */
+/*Responsive Design */
 @media (max-width: 600px) {
   .hero-overlay h1 {
     font-size: 2.2rem;

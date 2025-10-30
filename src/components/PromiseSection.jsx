@@ -1,5 +1,4 @@
 import "../css/PromiseSection.css";
-
 export default function PromiseSection() {
   return (
     <section className="promise-section">

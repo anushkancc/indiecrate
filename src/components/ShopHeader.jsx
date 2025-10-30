@@ -1,5 +1,4 @@
 import React from "react";
-
 const ShopHeader = ({ searchTerm, setSearchTerm, category, setCategory }) => {
   return (
     <div className="shop-header">
