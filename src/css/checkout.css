@@ -1,11 +1,11 @@
-
+/* -------------------- Global Reset -------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
+/* -------------------- Checkout Container -------------------- */
 .checkout-container {
   max-width: 1200px;
   margin: 2rem auto;
@@ -20,6 +20,7 @@
   margin-bottom: 1.5rem;
 }
 
+/* -------------------- Layout -------------------- */
 .checkout-content {
   display: flex;
   justify-content: space-between;
@@ -28,7 +29,7 @@
   flex-wrap: wrap;
 }
 
-
+/* -------------------- Form -------------------- */
 .checkout-form {
   flex: 1.2;
   min-width: 320px;
@@ -63,6 +64,7 @@
   gap: 1rem;
 }
 
+/* -------------------- Place Order Button -------------------- */
 .place-order-btn {
   background-color: #4b2e0e;
   color: white;
@@ -79,6 +81,7 @@
   transform: translateY(-2px);
 }
 
+/* -------------------- Order Summary -------------------- */
 .order-summary {
   flex: 0.8;
   min-width: 320px;
@@ -119,80 +122,7 @@
   margin: 0.8rem 0;
 }
 
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(2px);
-  z-index: 9999;
-}
-
-.popup-box {
-  background: #fff;
-  padding: 2rem 2.5rem;
-  border-radius: 16px;
-  text-align: center;
-  width: 350px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  animation: popupFade 0.3s ease-in-out;
-}
-
-.popup-box h2 {
-  font-size: 1.6rem;
-  margin-bottom: 0.8rem;
-  color: #292929;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.popup-box h2::before {
-  content: "✔";
-  color: green;
-  font-size: 1.6rem;
-  font-weight: bold;
-}
-
-.popup-box p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.popup-box button {
-  background-color: #4b2e0e;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.popup-box button:hover {
-  background-color: #3a220a;
-  transform: translateY(-2px);
-}
-
-@keyframes popupFade {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-
+/* -------------------- Payment Method -------------------- */
 .payment-method-section {
   margin-top: 1.5rem;
 }
@@ -239,13 +169,13 @@
   animation: fadeIn 0.25s ease-in-out;
 }
 
+/* -------------------- UPI Section -------------------- */
 .upi-label {
   font-size: 0.95rem;
   font-weight: 600;
   color: #4b2e0e;
 }
 
-/* UPI Apps Grid */
 .upi-apps {
   display: flex;
   flex-wrap: wrap;
@@ -292,6 +222,86 @@
   border-color: #4b2e0e;
   background-color: #fff;
   outline: none;
+}
+
+/* -------------------- Popup Overlay -------------------- */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+}
+
+/* -------------------- Popup Box -------------------- */
+.popup-box {
+  background: #fff;
+  padding: 2rem 2.2rem;
+  border-radius: 16px;
+  text-align: center;
+  width: 380px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  animation: popupFade 0.3s ease-in-out;
+  line-height: 1.5;
+}
+
+.popup-box h2 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #292929;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+
+
+.popup-box p {
+  font-size: 1rem;
+  color: #444;
+  margin: 6px 0;
+}
+
+.popup-box strong {
+  color: #000;
+  font-weight: 600;
+}
+
+.popup-box button {
+  background-color: #4b2e0e;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.popup-box button:hover {
+  background-color: #3a220a;
+  transform: translateY(-2px);
+}
+
+/* -------------------- Animations -------------------- */
+@keyframes popupFade {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {

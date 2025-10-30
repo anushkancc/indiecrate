@@ -12,7 +12,7 @@ import phonepe from "../assets/phonepe.png";
 import paytm from "../assets/paytm.png";
 
 const Checkout = () => {
-  const { cartItems, total } = useContext(CartContext);
+  const { cartItems, total, clearCart } = useContext(CartContext);
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -234,15 +234,30 @@ const Checkout = () => {
       </div>
 
       
-      {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-box">
-            <h2>Order Placed!</h2>
-            <p>Thank you for shopping with us.</p>
-            <button onClick={handleClosePopup}>Close</button>
-          </div>
-        </div>
-      )}
+     {showPopup && (
+  <div className="popup-overlay">
+    <div className="popup-box">
+      <h2>Order Placed Successfully!</h2>
+      <p className="popup-message">Thank you for shopping with IndieCrate.</p>
+
+      <div className="popup-details">
+        <p><strong>Order ID:</strong> #{Math.floor(100000 + Math.random() * 900000)}</p>
+        <p><strong>Total Amount:</strong> ₹{total}</p>
+        <p><strong>Payment Method:</strong> {paymentMethod === "COD" ? "Cash on Delivery" : paymentMethod}</p>
+        <p><strong>Estimated Delivery:</strong> 5–7 business days</p>
+      </div>
+
+      <button
+          className="continue-btn"
+          onClick={() => {
+          clearCart(); //Clears cart after successful order
+            navigate("/shop");
+        }}>Continue Shopping
+      </button>
+
+    </div>
+  </div>
+)}
 
       <Footer />
     </>

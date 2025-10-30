@@ -6,7 +6,7 @@ import "../css/NavBar.css";
 
 export default function NavBar() {
   const { user, logout } = useContext(UserContext);
-  const { clearCart } = useContext(CartContext);
+  const { cartItems, clearCart } = useContext(CartContext); // added cartItems
   const navigate = useNavigate();
 
   function handleLogout() {
@@ -22,7 +22,16 @@ export default function NavBar() {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/shop">Shop</Link></li>
-        <li><Link to="/cart">Cart</Link></li>
+
+        {/*Cart link with item count */}
+        <li className="cart-link">
+          <Link to="/cart">
+           cart 🛒
+            {cartItems.length > 0 && (
+              <span className="cart-count">{cartItems.length}</span>
+            )}
+          </Link>
+        </li>
 
         {user ? (
           <>

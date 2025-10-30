@@ -1,30 +1,39 @@
+/* Indiecrate Brown Aesthetic Cart Page */
+
 .cart-container {
   max-width: 1000px;
-  margin: 50px auto;
-  padding: 20px;
+  margin: 60px auto;
+  padding: 25px;
+  font-family: "Poppins", sans-serif;
+  color: #3e2a19;
 }
 
 .cart-title {
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+  color: #3e2a19;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+/*  Cart Items */
 .cart-items {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  margin-bottom: 30px;
+  background: #fffaf6;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(62, 42, 25, 0.1);
+  padding: 25px;
+  margin-bottom: 35px;
+  border: 1px solid #e8d3b9;
 }
 
 .cart-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
+  padding: 18px 0;
+  border-bottom: 1px solid #e8d3b9;
 }
 
 .cart-item:last-child {
@@ -32,10 +41,11 @@
 }
 
 .cart-item img {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
+  width: 85px;
+  height: 85px;
+  border-radius: 10px;
   object-fit: cover;
+  box-shadow: 0 4px 8px rgba(62, 42, 25, 0.1);
 }
 
 .cart-details {
@@ -45,70 +55,133 @@
 
 .cart-details h3 {
   font-size: 1rem;
+  font-weight: 600;
   margin-bottom: 5px;
+  color: #3e2a19;
 }
 
 .cart-details p {
   font-size: 0.9rem;
-  color: #555;
+  color: #6f4e37;
 }
 
 .cart-price {
   font-size: 1rem;
   font-weight: 600;
+  color: #5c3d2e;
 }
 
+/*  Empty Cart */
 .empty-cart {
   text-align: center;
-  padding: 30px 0;
+  padding: 40px 0;
   font-size: 1.2rem;
-  color: #777;
+  color: #8c6b4f;
+  background: #fffaf6;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(62, 42, 25, 0.1);
 }
 
+/*  Cart Summary */
 .cart-summary {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 20px;
+  background: #fffaf6;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(62, 42, 25, 0.1);
+  padding: 25px;
+  border: 1px solid #e8d3b9;
 }
 
 .cart-summary h2 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #3e2a19;
 }
 
 .summary-row {
   display: flex;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: 10px 0;
   font-size: 1rem;
+  color: #5c3d2e;
 }
 
 .summary-row.total {
   font-weight: 700;
   font-size: 1.2rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e8d3b9;
   margin-top: 10px;
-  padding-top: 10px;
+  padding-top: 12px;
+  color: #3e2a19;
 }
 
+/*  Checkout Button */
 .checkout-btn {
   width: 100%;
-  background: black;
-  color: white;
-  padding: 12px;
+  background: #5c3d2e;
+  color: #fffaf6;
+  padding: 14px;
   border: none;
-  border-radius: 8px;
-  margin-top: 20px;
+  border-radius: 10px;
+  margin-top: 25px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 
 .checkout-btn:hover {
-  background: #333;
+  background: #3e2a19;
+  transform: translateY(-2px);
 }
 
-/* Responsive */
+/*  Quantity Controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.inc {
+  background: #5c3d2e;
+  color: #fffaf6;
+  border: none;
+  padding: 6px 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.inc:hover {
+  background: #3e2a19;
+  transform: scale(1.05);
+}
+
+.quantity-controls span {
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 25px;
+  text-align: center;
+  color: #3e2a19;
+}
+
+/*  Remove Button */
+.remove-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #8c6b4f;
+  transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+  color: #b23a2d;
+  transform: scale(1.2);
+}
+
+/*  Responsive */
 @media (max-width: 768px) {
   .cart-item {
     flex-direction: column;
@@ -120,48 +193,3 @@
     align-self: flex-end;
   }
 }
-/* Quantity Buttons */
-.quantity-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.inc {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 5px 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-}
-
-.inc:hover {
-  background: #333;
-}
-
-.quantity-controls span {
-  font-size: 1rem;
-  font-weight: 600;
-  min-width: 25px;
-  text-align: center;
-}
-
-.remove-btn {
-  background: transparent;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: #999;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.remove-btn:hover {
-  color: #e63946;
-  transform: scale(1.1);
-}
-
