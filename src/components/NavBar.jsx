@@ -11,7 +11,7 @@ export default function NavBar() {
 
   function handleLogout() {
     logout();
-    clearCart(); // 🧹 Clear the cart when user logs out
+    clearCart(); // Clear the cart when user logs out
     navigate("/login");
   }
 
