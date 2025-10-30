@@ -14,7 +14,7 @@ export default function FounderSection() {
         <div className="founder-text">
           <h2>Meet the Founder</h2>
           <p>
-            Hi, I’m <strong>Anushka Anchal</strong> - the heart behind <em>IndieCrate</em>.  
+            Hi, I'm <strong>Anushka Anchal</strong> - the heart behind <em>IndieCrate</em>.  
             This platform was born from my love for local art and handcrafted stories.  
             I believe every handmade piece carries not just beauty but also the soul of its creator.
           </p>
